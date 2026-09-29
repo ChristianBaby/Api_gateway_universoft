@@ -158,7 +158,7 @@ export const getServices = () => ({
 export const SERVICES = getServices();
 
 // Token para comunicación entre servicios. En producción no debe tener fallback hardcodeado.
-export const MICROSERVICE_TOKEN = readEnv('MICROSERVICE_TOKEN', 'gateway-secret-token-2024', { requiredInProduction: true });
+export const MICROSERVICE_TOKEN = readEnv('MICROSERVICE_TOKEN', 'universoft-dev-only-cambiame', { requiredInProduction: true });
 
 // Configuración del Gateway
 export const GATEWAY_CONFIG = {

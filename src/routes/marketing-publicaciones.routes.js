@@ -67,7 +67,7 @@ function getJwtSecret() {
   if (['production', 'prod', 'staging'].includes(String(process.env.NODE_ENV || '').trim().toLowerCase())) {
     throw new Error('[CONFIG] JWT_SECRET es requerido en producción para validar rutas de publicaciones.');
   }
-  return 'ruwark-secret-key-2024';
+  return 'universoft-dev-only-cambiame';
 }
 
 function firstTruthy(...values) {

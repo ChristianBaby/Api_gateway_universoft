@@ -1,11 +1,14 @@
 import express from "express";
 import { createProxyMiddleware } from "http-proxy-middleware";
+import { MICROSERVICE_TOKEN } from "../config/services.js";
 
 export default function createClientesRoutes(SERVICES) {
   const router = express.Router();
 
-  // Token compartido por defecto (Debe coincidir con el del microservicio)
-  const DEFAULT_MICROSERVICE_TOKEN = "gateway-secret-token-2024";
+  // Token compartido real, leido de la config central (antes este archivo
+  // usaba un literal propio que ignoraba MICROSERVICE_TOKEN en la mayoria
+  // de rutas de abajo).
+  const DEFAULT_MICROSERVICE_TOKEN = MICROSERVICE_TOKEN;
   const RECAPTCHA_VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify";
 
   // Verificación de captcha solo para login de clientes. aqui
