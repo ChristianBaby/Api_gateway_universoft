@@ -67,15 +67,12 @@ export const getServices = () => ({
     },
     CMS: {
         name: 'micro-cms',
-        baseUrl: readEnv('CMS_SERVICE_URL', 'http://localhost:4007', { requiredInProduction: true }),
+        baseUrl: readEnv('CMS_SERVICE_URL', 'http://localhost:4007'),
         routes: ['/marketing/cms']
     },
     AI: {
         name: 'ruwark-micro-ia',
-        baseUrl: readAnyEnv(['RUWARK_MICRO_IA_URL', 'CEREBRO_IA_SERVICE_URL', 'AI_SERVICE_URL'], 'http://localhost:4011', {
-            requiredInProduction: true,
-            label: 'RUWARK_MICRO_IA_URL',
-        }),
+        baseUrl: readAnyEnv(['RUWARK_MICRO_IA_URL', 'CEREBRO_IA_SERVICE_URL', 'AI_SERVICE_URL'], 'http://localhost:4011'),
         routes: ['/marketing/ai']
     },
     GEOPROCESOS: {
@@ -129,10 +126,7 @@ export const getServices = () => ({
     },
     PUBLICACIONES: {
         name: 'micro-publicaciones',
-        baseUrl: readAnyEnv(['MICRO_PUBLICACIONES_URL', 'PUBLICACIONES_SERVICE_URL'], 'http://localhost:4010', {
-            requiredInProduction: true,
-            label: 'MICRO_PUBLICACIONES_URL',
-        }),
+        baseUrl: readAnyEnv(['MICRO_PUBLICACIONES_URL', 'PUBLICACIONES_SERVICE_URL'], 'http://localhost:4010'),
         routes: [
             // Regla de oro CMS/Publicaciones:
             // marca, keyMeta y canales pertenecen a /marketing/cms/*, no a publicaciones.
